@@ -37,9 +37,17 @@ router.route('/:id').delete((request, response) => {
 });
 
 router.route('/update/:id').post((request, response) => {
-  Plan.findById(request.params.id).then(plan => {
+  Plan.findById(request.params.id)
+    .then(plan => {
+      plan.username = request.body.username;
+      plan.description = request.body.description;
+      plan.duration = Number(request.body.duration);
+      plan.date = Date.parse(request.body.date);
 
-  })
-})
+      plan.save()
+        .then(() => response.json('Plan updated'))
+        .catch(error => response.status(400).json("Error: " + error));
+    }).catch(error => response.status(400).json("Error: " + error));
+});
 
 module.exports = router;
