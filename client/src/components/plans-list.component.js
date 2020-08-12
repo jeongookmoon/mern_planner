@@ -34,12 +34,12 @@ export default class PlansList extends Component {
   }
 
   deletePlan(id) {
-    axios.delete('/plans' + id)
+    axios.delete('/plans/' + id)
       .then(response => console.log('response', response))
       .catch(error => console.log('error', error));
 
     this.setState({
-      plans: this.state.exercises.filter(element => element._id !== id)
+      plans: this.state.plans.filter(element => element._id !== id)
     });
   }
 
