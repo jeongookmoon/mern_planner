@@ -23,7 +23,7 @@ export default class EditPlan extends Component {
   };
 
   componentDidMount() {
-    axios.get('http://localhost:5000/plans/' + this.props.match.params.id)
+    axios.get('/plans/' + this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -34,7 +34,7 @@ export default class EditPlan extends Component {
       })
       .catch(error => console.log('error', error));
 
-    axios.get('http://localhost:5000/users/')
+    axios.get('/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -80,7 +80,7 @@ export default class EditPlan extends Component {
 
     console.log('plan', plan);
 
-    axios.post('http://localhost:5000/plans/update/' + this.props.match.params.id, plan)
+    axios.post('/plans/update/' + this.props.match.params.id, plan)
       .then(response => console.log('response', response))
       .catch(error => console.log('error', error))
 

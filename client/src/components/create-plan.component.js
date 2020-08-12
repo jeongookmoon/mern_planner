@@ -24,7 +24,7 @@ export default class CreatePlan extends Component {
 
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/')
+    axios.get('/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -71,7 +71,7 @@ export default class CreatePlan extends Component {
 
     console.log('plan', plan);
 
-    axios.post('http://localhost:5000/plans/add', plan)
+    axios.post('/plans/add', plan)
       .then(response => console.log('response', response))
       .catch(error => console.log('error', error))
 

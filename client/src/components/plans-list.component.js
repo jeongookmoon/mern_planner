@@ -24,7 +24,7 @@ export default class PlansList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/plans/')
+    axios.get('/plans/')
       .then(response => {
         this.setState({
           plans: response.data
@@ -34,7 +34,7 @@ export default class PlansList extends Component {
   }
 
   deletePlan(id) {
-    axios.delete('http://localhost:5000/plans' + id)
+    axios.delete('/plans' + id)
       .then(response => console.log('response', response))
       .catch(error => console.log('error', error));
 
