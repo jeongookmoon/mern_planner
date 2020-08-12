@@ -39,7 +39,7 @@ export default class PlansList extends Component {
       .catch(error => console.log('error', error));
 
     this.setState({
-      plans: this.state.exercises.filter(element => element._id != id)
+      plans: this.state.exercises.filter(element => element._id !== id)
     });
   }
 
